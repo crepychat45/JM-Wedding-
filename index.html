@@ -3,59 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wedding Invitation</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Junedkhan & Misbah Wedding Invitation</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
 
-    <div class="invitation-container">
-        <section class="main-screen">
-            <div class="decorations">✨ 🏛️ ✨</div>
-            <p class="together">TOGETHER WITH THEIR FAMILIES</p>
-            <h1 class="names">JUNEDKHAN <br>&<br> MISBAH</h1>
-            <p class="request">Request the honour of your presence</p>
-            <p class="tagline">With years of waiting, endless dreams, and finally a successful rishta... ❤️</p>
-            <div class="scroll-down">Scroll Down 👇</div>
-        </section>
-
-        <hr>
-
-        <section class="scratch-section">
-            <h2>Scratch to Reveal the Date Card</h2>
-            <div class="scratch-container">
-                <div class="secret-card">
-                    <h3>Our Forever Begins</h3>
-                    <p class="date">November 20, 2026</p>
-                    <p class="day">Friday | 11:00 AM</p>
-                </div>
-                <canvas id="scratchCanvas"></canvas>
-            </div>
-        </section>
-
-        <hr>
-
-        <section class="countdown-section">
-            <h2>Counting Down to Forever</h2>
-            <div id="countdown">
-                <div class="time-box"><span id="days">00</span><p>Days</p></div>
-                <div class="time-box"><span id="hours">00</span><p>Hours</p></div>
-                <div class="time-box"><span id="minutes">00</span><p>Mins</p></div>
-                <div class="time-box"><span id="seconds">00</span><p>Secs</p></div>
-            </div>
-        </section>
-
-        <hr>
-
-        <section class="venue-section">
-            <h2>Program & Venue</h2>
-            <div class="event-details">
-                <h3>Wedding Ceremony</h3>
-                <p>📍 MogalWas Varvada,Near Varvada Masjid,Ta:Unjha,Dis:Mehsana</p>
-                <a href="https://maps.app.goo.gl/zgdSbtRRkWpZwHDp8" target="_blank" class="map-btn">View on Google Maps</a>
-            </div>
-        </section>
+    <div id="envelope-wrapper" class="envelope-wrapper">
+        <div class="envelope-content">
+            <div class="gold-mandap">🏛️</div>
+            <p class="from-text">FROM "JM Wedding Invitation?"</p>
+            <p class="to-text">TO "SAVE THE DATE" 😭❤️✨</p>
+            <button id="open-btn" class="open-btn">Tap to Open Invitation</button>
+        </div>
     </div>
 
-    <script src="script.js"></script>
+    <div id="app-dashboard" class="app-dashboard hidden">
+        
+        <div class="top-nav-mock">
+            <span class="url-text">Jm.com/dashboard/</span>
+            <div class="nav-icons">✏️ 🔊</div>
+        </div>
+
+        <div class="scrollable-content">
+            <section class="card-hero animate-fade">
+                <div class="chandelier">👑</div>
+                <p class="sub-title">TOGETHER WITH THEIR FAMILIES</p>
+                <h1 class="main-names">JUNEDKHAN <br><span class="and-symbol">&</span><br> MISBAH</h1>
+                <p class="request-text">Request the honour of your presence</p>
+                <div class="divider-line"></div>
+                <p class="story-tag">After years of waiting, endless dreams, and finally a successful rishta...💍</p>
+                <div class="scroll-arrow">Scroll Down to Reveal 👇</div>
+            </section>
+
+            <section class="scratch-section">
+                <h3 class="section-title">Scratch to Reveal</h3>
+                <div class="scratch-card-container">
+                    <div class="revealed-date-card">
+                        <h4 class="forever-text">Our Forever Begins</h4>
+                        <div class="date-highlight">November 20, 2026</div>
+                        <p class="day-time">Friday | 11:00 AM</p>
+                    </div>
+                    <canvas id="scratchCanvas"></canvas>
+                </div>
+            </section>
+
+            <section class="countdown-section">
+                <h3 class="section-title">Counting Down to Forever</h3>
+                <div id="countdown-timer" class="countdown-timer">
+                    <div class="time-block"><span id="days">00</span><p>DAYS</p></div>
+                    <div class="time-block"><span id="hours">00</span><p>HOURS</p></div>
+                    <div class="time-block"><span id="minutes">00</span><p>MINUTES</p></div>
+                    <div class="time-block"><span id="seconds">00</span><p>SECONDS</p></div>
+                </div>
+            </section>
+
+            <section class="venue-section">
+                <h3 class="section-title">Program Timeline</h3>
+                <div class="timeline-box">
+                    <div class="event-node">
+                        <span class="dot"></span>
+                        <strong>Wedding Ceremony</strong>
+                        <p>June 25, 2026, 11:11 AM</p>
+                    </div>
+                </div>
+
+                <h3 class="section-title" style="margin-top: 40px;">Venue</h3>
+                <div class="venue-card-glass">
+                    <h4>Gokuldham Society</h4>
+                    <p>Andheri East, Mumbai</p>
+                    <div class="map-placeholder">
+                        <div class="mock-map">📍 View Live Location</div>
+                    </div>
+                    <a href="https://maps.app.goo.gl/zgdSbtRRkWpZwHDp8" target="_blank" class="premium-btn">View on Google Maps</a>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <audio id="bg-music" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
+
+    <script type="module" src="/main.js"></script>
 </body>
 </html>
