@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Poppins:wght@300;400;600&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #121212;
+    color: #e5c158; /* Premium Gold Color */
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+}
+
+.invitation-container {
+    width: 100%;
+    max-width: 450px; /* Mobile View Optimization */
+    background: linear-gradient(135deg, #1f1a10 0%, #0d0d0d 100%);
+    box-shadow: 0 0 20px rgba(0,0,0,0.8);
+    text-align: center;
+    padding: 20px;
+    border: 2px solid #e5c158;
+}
+
+section {
+    padding: 60px 10px;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #e5c158, transparent);
+    margin: 20px 0;
+}
+
+/* Typography */
+.names {
+    font-family: 'Cinzel', serif;
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+    color: #ffffff;
+    text-shadow: 0 0 10px #e5c158;
+    margin: 20px 0;
+}
+
+.together { font-size: 0.8rem; letter-spacing: 3px; color: #aaa; }
+.request { font-style: italic; color: #ddd; }
+.tagline { font-size: 0.9rem; color: #bbb; max-width: 300px; line-height: 1.6; }
+
+/* Scratch Card Feature */
+.scratch-container {
+    position: relative;
+    width: 300px;
+    height: 180px;
+    margin-top: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+.secret-card {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #2a2415;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #e5c158;
+    border-radius: 10px;
+}
+
+.secret-card h3 { margin: 0; color: #fff; font-family: 'Cinzel', serif; }
+.secret-card .date { font-size: 1.5rem; font-weight: bold; margin: 10px 0 5px 0; }
+
+#scratchCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+    touch-action: none; /* Stops mobile scrolling while scratching */
+}
+
+/* Countdown Timer */
+#countdown {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.time-box {
+    background: rgba(229, 193, 88, 0.1);
+    border: 1px solid #e5c158;
+    padding: 10px;
+    border-radius: 8px;
+    width: 70px;
+}
+
+.time-box span { font-size: 1.8rem; font-weight: bold; color: #fff; }
+.time-box p { margin: 5px 0 0 0; font-size: 0.75rem; color: #bbb; }
+
+/* Buttons */
+.map-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #e5c158;
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 25px;
+    transition: 0.3s;
+}
+.map-btn:hover { background-color: #fff; }
