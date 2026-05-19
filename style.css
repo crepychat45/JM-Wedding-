@@ -19,65 +19,79 @@ body {
     background-color: #000;
     color: #fff;
     font-family: 'Montserrat', sans-serif;
-    overflow-x: hidden;
+    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
 }
 
-/* Mobile Screen Shell Wrapper */
-.envelope-wrapper, .app-dashboard {
+/* Container Shell Wrapper optimized for Mobile Screens */
+.gate-container, .app-dashboard {
     width: 100vw;
-    max-width: 430px; /* Perfect Phone Aspect Ratio */
+    max-width: 430px;
     height: 100vh;
-    background: linear-gradient(180deg, #14120f 0%, #050505 100%);
     position: fixed;
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.9);
-    border: 1px solid rgba(212, 175, 55, 0.15);
     overflow: hidden;
-    display: flex;
-    flex-direction: column;
 }
 
-/* Envelope/Welcome Screen Styling */
-.envelope-wrapper {
+/* --- GATE SPLIT STYLE STRUCTURE --- */
+.gate-container {
     z-index: 100;
+    display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.gate-half {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(135deg, #1f1a12 0%, #0d0c0a 100%);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.left-gate { left: 0; transform-origin: left; }
+.right-gate { right: 0; transform-origin: right; }
+
+/* Gate Slide Open Trigger Animations */
+.gate-container.open .left-gate { transform: translateX(-100%); }
+.gate-container.open .right-gate { transform: translateX(100%); }
+.gate-container.open .gate-content { opacity: 0; pointer-events: none; transition: 0.4s ease; }
+.gate-container.open { pointer-events: none; } /* Dashboard interactable when gate is hidden */
+
+/* Content on Top of Gates */
+.gate-content {
+    position: relative;
+    z-index: 101;
     text-align: center;
-    padding: 30px;
-    transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.8s ease;
+    padding: 20px;
 }
 
-.envelope-wrapper.slide-up {
-    transform: translateY(-100vh);
-    opacity: 0;
-}
+.from-text { font-size: 0.8rem; letter-spacing: 2px; color: #a1a1a1; }
+.to-text { font-size: 1.25rem; font-weight: 600; margin: 15px 0 40px 0; color: #fff; text-shadow: 0 0 10px rgba(255,255,255,0.3); }
 
-.gold-mandap { font-size: 4rem; text-shadow: 0 0 20px var(--gold); margin-bottom: 20px; }
-.from-text { font-size: 0.85rem; letter-spacing: 2px; color: #888; }
-.to-text { font-size: 1.3rem; font-weight: 600; margin: 15px 0 40px 0; color: #fff; }
-
-.open-btn, .premium-btn {
+.open-gate-btn, .premium-btn {
     background: linear-gradient(135deg, #b38f2d 0%, #d4af37 50%, #f3e5ab 100%);
     border: none;
     color: #000;
-    padding: 14px 36px;
-    font-size: 1rem;
+    padding: 14px 32px;
+    font-size: 0.95rem;
     font-weight: 600;
     border-radius: 30px;
     cursor: pointer;
     box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
-    transition: transform 0.2s ease;
 }
-.open-btn:active { transform: scale(0.95); }
 
-/* Main App Dashboard Setup */
-.hidden { display: none !important; }
-
+/* --- DASHBOARD LAYER --- */
 .app-dashboard {
     z-index: 50;
+    background: linear-gradient(180deg, #14120f 0%, #050505 100%);
+    display: flex;
+    flex-direction: column;
 }
 
 .top-nav-mock {
@@ -88,7 +102,6 @@ body {
     justify-content: space-between;
     font-size: 0.8rem;
     color: #888;
-    backdrop-filter: blur(10px);
 }
 
 .scrollable-content {
@@ -98,9 +111,8 @@ body {
     padding-bottom: 50px;
 }
 
-/* Sections Base Styling */
 section {
-    padding: 40px 24px;
+    padding: 50px 24px;
     min-height: 90vh;
     display: flex;
     flex-direction: column;
@@ -109,18 +121,17 @@ section {
     text-align: center;
 }
 
-/* Section 1: Hero Animations */
-.chandelier { font-size: 3.5rem; margin-bottom: 10px; animation: float 3s ease-in-out infinite; }
-.sub-title { font-size: 0.75rem; letter-spacing: 4px; color: var(--gold); margin-bottom: 20px; }
-.main-names { font-family: 'Cinzel', serif; font-size: 2.2rem; line-height: 1.4; color: #fff; text-shadow: 0 0 15px rgba(255,255,255,0.2); }
+/* Hero UI Styles */
+.chandelier { font-size: 3.5rem; animation: float 3s ease-in-out infinite; }
+.sub-title { font-size: 0.75rem; letter-spacing: 4px; color: var(--gold); margin-bottom: 15px; }
+.main-names { font-family: 'Cinzel', serif; font-size: 2.2rem; line-height: 1.4; color: #fff; }
 .and-symbol { font-size: 1.5rem; color: var(--gold); }
 .divider-line { width: 60px; height: 1px; background: var(--gold); margin: 25px 0; }
-.story-tag { font-size: 0.9rem; color: #ccc; line-height: 1.7; max-width: 320px; }
-.scroll-arrow { font-size: 0.8rem; color: #666; margin-top: 40px; letter-spacing: 1px; }
+.story-tag { font-size: 0.9rem; color: #ccc; line-height: 1.7; }
+.scroll-arrow { font-size: 0.8rem; color: #555; margin-top: 30px; }
 
-/* Section 2: Advanced Scratch Card UI */
+/* Scratch Element */
 .section-title { font-family: 'Cinzel', serif; font-size: 1.25rem; color: var(--gold); letter-spacing: 2px; margin-bottom: 25px; }
-
 .scratch-card-container {
     position: relative;
     width: 320px;
@@ -128,9 +139,7 @@ section {
     border-radius: 16px;
     overflow: hidden;
     border: 1px solid var(--glass-border);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.7);
 }
-
 .revealed-date-card {
     position: absolute;
     width: 100%;
@@ -141,23 +150,11 @@ section {
     justify-content: center;
     align-items: center;
 }
-.forever-text { font-family: 'Cinzel', serif; color: #888; font-size: 0.9rem; letter-spacing: 1px; }
-.date-highlight { font-size: 1.8rem; font-weight: 700; color: var(--gold-light); margin: 10px 0; text-shadow: 0 0 10px rgba(212,175,55,0.3); }
-.day-time { font-size: 0.85rem; color: #aaa; }
+.date-highlight { font-size: 1.8rem; font-weight: 700; color: var(--gold-light); margin: 10px 0; }
+#scratchCanvas { position: absolute; top: 0; left: 0; touch-action: none; }
 
-#scratchCanvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    cursor: crosshair;
-    touch-action: none;
-}
-
-/* Section 3: Premium Countdown Style */
-.countdown-timer {
-    display: flex;
-    gap: 12px;
-}
+/* Countdown Setup */
+.countdown-timer { display: flex; gap: 12px; }
 .time-block {
     background: var(--glass);
     backdrop-filter: blur(8px);
@@ -166,10 +163,10 @@ section {
     width: 76px;
     border-radius: 12px;
 }
-.time-block span { font-size: 1.6rem; font-weight: 600; color: #fff; display: block; margin-bottom: 4px; }
-.time-block p { font-size: 0.6rem; color: var(--gold); letter-spacing: 1px; }
+.time-block span { font-size: 1.6rem; font-weight: 600; display: block; }
+.time-block p { font-size: 0.6rem; color: var(--gold); }
 
-/* Section 4: Timelines and Maps */
+/* Venue Layout */
 .venue-card-glass {
     background: var(--glass);
     border: 1px solid var(--glass-border);
@@ -178,22 +175,9 @@ section {
     border-radius: 16px;
     width: 100%;
 }
-.mock-map {
-    height: 120px;
-    background: #151515;
-    border: 1px dashed #333;
-    border-radius: 8px;
-    margin: 20px 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #666;
-    font-size: 0.9rem;
-}
+.mock-map { height: 120px; background: #151515; border: 1px dashed #333; border-radius: 8px; margin: 20px 0; display: flex; justify-content: center; align-items: center; color: #666; }
 
-/* Custom Animation Keyframes */
 @keyframes float {
-    0% { transform: translateY(0px); }
+    0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-8px); }
-    100% { transform: translateY(0px); }
 }
